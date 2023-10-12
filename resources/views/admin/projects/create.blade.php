@@ -30,6 +30,13 @@
             </div>
 
             <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"></label>
+                </div>
+            </div>
+
+            <div class="mb-3">
                 <label class="form-label">Descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description"></textarea>
                 @error('description')
