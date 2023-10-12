@@ -10,6 +10,7 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Tipologia</th>
+                    <th scope="col">Tecnologie</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Data</th>
                     <th scope="col">Immagine</th>
@@ -23,7 +24,8 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->name }}</td>
-                        <td><span class="badge text-bg-info">{{ $project->type->name }}</span></td>
+                        <td><span class="badge text-bg-secondary">{{ $project->type->name }}</span></td>
+                        <td><span class="badge text-bg-info">{{ $project->technologies->name }}</span></td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->date->format('d/m/Y') }}</td>
                         <td><img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid border"

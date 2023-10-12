@@ -5,7 +5,8 @@
 
         <h1>{{ $project->name }}</h1>
 
-        <h2><span class="badge text-bg-info">{{ $project->type->name }}</span></h2>
+        <h2><span class="badge text-bg-secondary">{{ $project->type->name }}</span><span
+                class="badge text-bg-info">{{ $project->technologies->name }}</span></h2>
 
         <p>{{ $project->description }}</p>
 

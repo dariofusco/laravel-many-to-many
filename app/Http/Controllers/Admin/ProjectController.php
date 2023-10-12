@@ -8,6 +8,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Type;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -27,8 +28,10 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
+
+        $technologies = Technology::all();
         
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -41,6 +44,10 @@ class ProjectController extends Controller
         $data['image'] = Storage::put('projects', $data['image']);
         
         $project = Project::create($data);
+
+        if (key_exists("technologies", $data)) {
+            $project->technologies()->attach($data["technologies"]);
+        }
 
         return redirect()->route('admin.projects.show', $project->id);
     }
@@ -64,7 +71,9 @@ class ProjectController extends Controller
 
         $types = Type::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -99,6 +108,8 @@ class ProjectController extends Controller
         if($project->image) {
             Storage::delete($project->image);
         }
+
+        $project->technologies()->detach();
 
         $project->delete();
 

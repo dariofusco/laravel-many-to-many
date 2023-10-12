@@ -10,8 +10,8 @@
             @csrf()
             @method('PUT')
 
-            <div class="mb-3">
-                <label class="form-label">Nome</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                     value="{{ $project->name }}">
                 @error('name')
@@ -19,11 +19,12 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Tipologia</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Tipologia</label>
                 <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}" {{ $project->type_id === $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                        <option value="{{ $type->id }}" {{ $project->type_id === $type->id ? 'selected' : '' }}>
+                            {{ $type->name }}</option>
                     @endforeach
                     @error('type_id')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -31,16 +32,29 @@
                 </select>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Descrizione</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Tecnologie:</label>
+                <div>
+                    @foreach ($technologies as $technology)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="{{ $technology->id }} {{ $project->technologies?->contains($technology) ? 'checked' : '' }}"
+                                id="{{ $technology->id }}" name="technologies">
+                            <label class="form-check-label" for="{{ $technology->id }}">{{ $technology->name }}</label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-bold">Descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description">{{ $project->description }}</textarea>
                 @error('description')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Data</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Data</label>
                 <input type="date" class="form-control @error('date') is-invalid @enderror" name="date"
                     value="{{ $project->date->format('Y-m-d') }}">
                 @error('date')
@@ -48,8 +62,8 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">Immagine:</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Immagine:</label>
                 @if ($project->image)
                     <img src="{{ asset('/storage/' . $project->image) }}" alt=""
                         class="img-fluid border border-danger my-2 p-1" style="width: 100px">
@@ -60,8 +74,8 @@
                 @enderror
             </div>
 
-            <div class="mb-3">
-                <label class="form-label">GitHub Link</label>
+            <div class="mb-4">
+                <label class="form-label fw-bold">GitHub Link</label>
                 <input type="text" class="form-control @error('github_link') is-invalid @enderror" name="github_link"
                     value="{{ $project->github_link }}">
                 @error('github_link')
