@@ -46,7 +46,9 @@ class ProjectController extends Controller
         $project = Project::create($data);
 
         if (key_exists("technologies", $data)) {
+            
             $project->technologies()->attach($data["technologies"]);
+            
         }
 
         return redirect()->route('admin.projects.show', $project->id);

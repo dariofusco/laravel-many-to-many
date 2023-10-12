@@ -25,7 +25,11 @@
                     <tr>
                         <td>{{ $project->name }}</td>
                         <td><span class="badge text-bg-secondary">{{ $project->type->name }}</span></td>
-                        <td><span class="badge text-bg-info">{{ $project->technologies->name }}</span></td>
+                        <td>
+                            @foreach ($project->technologies as $technology)
+                                <span class="badge text-bg-info">{{ $technology->name }}</span>
+                            @endforeach
+                        </td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->date->format('d/m/Y') }}</td>
                         <td><img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid border"
