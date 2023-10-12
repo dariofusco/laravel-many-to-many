@@ -31,6 +31,7 @@ class ProjectUpsertRequest extends FormRequest
         return [
             'name' => 'required',
             'type_id' => 'required',
+            'technologies' => 'nullable',
             'description' => 'nullable',
             'date' => 'required',
             'image' => 'nullable',
