@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-light my-2">
+        <div class="my-3">
             <a href="{{ route('admin.projects.index') }}">I Miei Progetti</a>
         </div>
     </div>

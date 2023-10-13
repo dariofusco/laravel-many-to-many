@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
+    <div class="jumbotron p-5 mb-4 rounded-3">
         <div class="container">
             <h1 class="py-3">I Miei Progetti</h1>
             <div class="row">

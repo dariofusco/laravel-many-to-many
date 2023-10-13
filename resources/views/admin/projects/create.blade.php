@@ -76,7 +76,7 @@
 
             <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Indietro</a>
 
-            <button class="btn btn-primary">Crea</button>
+            <button class="btn btn-success">Crea</button>
 
         </form>
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-3">
+    <div class="container py-3 text-center">
 
         <h1>{{ $project->name }}</h1>
 
@@ -23,7 +23,7 @@
 
         <a href="{{ $project->github_link }}">GitHub Link</a>
 
-        <div class="d-flex py-3">
+        <div class="d-flex py-3 justify-content-center">
 
             <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Indietro</a>
 
