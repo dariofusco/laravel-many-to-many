@@ -37,13 +37,13 @@
                         <td><a href="{{ $project->github_link }}">{{ $project->github_link }}</a></td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->id) }}"
-                                class="btn btn-info">Dettagli</a>
+                                class="btn btn-info"><i class="fa-solid fa-list"></i></a>
                         </td>
                         <td>
                             <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Elimina</button>
+                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

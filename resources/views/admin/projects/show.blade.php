@@ -6,10 +6,11 @@
         <h1>{{ $project->name }}</h1>
 
         <h2>
-            <span class="badge text-bg-secondary">{{ $project->type->name }}</span>
-            @foreach ($project->technologies as $technology)
-                <span class="badge text-bg-info">{{ $technology->name }}</span>
-            @endforeach
+            <span class="badge text-bg-secondary">{{ $project->type->name }}
+                @foreach ($project->technologies as $technology)
+                    <span class="badge text-bg-info">{{ $technology->name }}</span>
+                @endforeach
+            </span>
         </h2>
 
         <p>{{ $project->description }}</p>
@@ -17,7 +18,7 @@
         <p>{{ $project->date->format('d/m/Y') }}</p>
 
         <div>
-            <img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid" style="width: 200px">
+            <img src="{{ asset('/storage/' . $project->image) }}" alt="" class="img-fluid" style="width: 250px">
         </div>
 
         <a href="{{ $project->github_link }}">GitHub Link</a>
